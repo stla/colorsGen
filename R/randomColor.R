@@ -1,5 +1,7 @@
 #' @importFrom colorspace hex2RGB HSV
 #' @importFrom grDevices rgb
+#' @importFrom methods as
+#' @importFrom stats runif
 NULL
 
 colorsGenEnvir <- new.env()
