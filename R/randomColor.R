@@ -74,8 +74,8 @@ getRealHueRange <- function(colorHue) {
     colorDictionary <- get0("colorDictionary", envir = asNamespace("colorsGen"))
     if(colorHue %in% names(colorDictionary)) {
       color <- colorDictionary[[colorHue]]
-      if(!is.null(color[["hueRange"]])) {
-        return(color[["hueRange"]])
+      if(!is.null(hueRange <- color[["hueRange"]])) {
+        return(hueRange)
       }
     } else if(isHex(colorHue)) {
       hue <- hex2HSV(colorHue)[1L]
