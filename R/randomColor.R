@@ -26,7 +26,7 @@ getColorInfo <- function(hue) {
       return(color)
     }
   }
-  return("Color not found")
+  stop("Color not found")
 }
 
 hex2HSV <- function(x) {
