@@ -44,10 +44,9 @@ isHex <- function(x) {
 }
 
 getHueRange <- function(colorInput) {
-  number <- suppressWarnings(as.integer(colorInput))
-  if(!is.na(number)) {
-    if(number < 360 && number > 0) {
-      return(c(number, number))
+  if(mode(colorInput) == "numeric") {
+    if(colorInput < 360 && colorInput > 0) {
+      return(c(colorInput, colorInput))
     }
   }
   if(typeof(colorInput) == "character") {
@@ -67,10 +66,9 @@ getHueRange <- function(colorInput) {
 }
 
 getRealHueRange <- function(colorHue) {
-  number <- suppressWarnings(as.integer(colorHue))
-  if(!is.na(number)) {
-    if(number < 360 && number > 0) {
-      return(getColorInfo(number)[["hueRange"]])
+  if(mode(colorHue) == "numeric") {
+    if(colorHue < 360 && colorHue > 0) {
+      return(getColorInfo(colorHue)[["hueRange"]])
     }
   } else if(typeof(colorHue) == "character") {
     colorDictionary <- get0("colorDictionary", envir = asNamespace("colorsGen"))
