@@ -4,3 +4,4 @@
 ^inst/essais$
 ^\.github$
 ^LICENSE$
+^cran-comments\.md$
