@@ -204,8 +204,12 @@ HSV2hex <- function(h, s, v) {
 #' @description Generate random colors.
 #'
 #' @param n number of colors to be generated
-#' @param hue the hue xxx
-#' @param luminosity xxx
+#' @param hue the desired hue; it can be a number between 0 and 360, a
+#'   hexadecimal color code, or a string taken among the possibilities
+#'   "random", "red", "orange", "yellow", "green", "blue", "purple", "pink",
+#'   or "monochrome"
+#' @param luminosity the desired luminosity, a string taken among the
+#'   possible choices "random", "light", "bright", or "dark"
 #'
 #' @return A character vector of hexadecimal color codes.
 #' @export
@@ -217,5 +221,24 @@ HSV2hex <- function(h, s, v) {
 #' pie(rep(1, n), col = clrs)
 #' par(opar)
 randomColor <- function(n, hue = "random", luminosity = "random") {
-  .randomColor(n, list("hue" = hue, "luminosity" = luminosity))
+  stopifnot(n >= 1)
+  if(!is.numeric(hue) && !isHex(hue)) {
+    hue <- match.arg(
+      hue, choices = c(
+        "random",
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple",
+        "pink",
+        "monochrome"
+      )
+    )
+  }
+  luminosity <- match.arg(
+    luminosity, c("random", "light", "bright", "dark")
+  )
+  .randomColor(as.integer(n), list("hue" = hue, "luminosity" = luminosity))
 }

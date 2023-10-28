@@ -9,9 +9,13 @@ randomColor(n, hue = "random", luminosity = "random")
 \arguments{
 \item{n}{number of colors to be generated}
 
-\item{hue}{the hue xxx}
+\item{hue}{the desired hue; it can be a number between 0 and 360, a
+hexadecimal color code, or a string taken among the possibilities
+"random", "red", "orange", "yellow", "green", "blue", "purple", "pink",
+or "monochrome"}
 
-\item{luminosity}{xxx}
+\item{luminosity}{the desired luminosity, a string taken among the
+possible choices "random", "light", "bright", or "dark"}
 }
 \value{
 A character vector of hexadecimal color codes.
