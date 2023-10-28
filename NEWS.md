@@ -1,3 +1,3 @@
-# colorGens 1.0.0
+# colorsGen 1.0.0
 
 First release.
