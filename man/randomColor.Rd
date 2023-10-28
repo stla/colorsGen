@@ -24,9 +24,24 @@ A character vector of hexadecimal color codes.
 Generate random colors.
 }
 \examples{
+# pie chart ####
 n <- 20
-clrs <- randomColor(n, hue = "red", luminosity = "bright")
-opar <- par(mar=c(0, 0, 0, 0))
+clrs <- randomColor(n, hue = "red", luminosity = "dark")
+opar <- par(mar = c(0, 0, 0, 0))
 pie(rep(1, n), col = clrs)
+par(opar)
+
+# Fermat spiral ####
+n <- 400
+theta <- seq(0, n/3, length.out = n)
+x <- sqrt(theta) * cos(theta)
+y <- sqrt(theta) * sin(theta)
+pts <- cbind(x, y)
+clrs <- randomColor(n, hue = "random", luminosity = "bright")
+opar <- par(mar = c(0, 0, 0, 0), bg = "black")
+plot(
+  pts, asp = 1, xlab = NA, ylab = NA,
+  axes = FALSE, pch = 19, col = clrs
+)
 par(opar)
 }
